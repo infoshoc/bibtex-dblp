@@ -49,7 +49,7 @@ def convert_dblp_entries(bib, bib_format=dblp_api.BibFormat.condensed):
             result_dblp = dblp_api.get_bibtex(dblp_id, bib_format=bib_format)
             data = parse_bibtex(result_dblp)
             assert len(data.entries) <= 2 if bib_format is dblp_api.BibFormat.crossref else len(data.entries) == 1
-            new_entry = data.entries[entry_str]
+            new_entry = data.entries.get(entry_str, tuple(data.entries.values())[0])
             # Set new format
             bib.entries[entry_str] = new_entry
             if bib_format is dblp_api.BibFormat.crossref:
