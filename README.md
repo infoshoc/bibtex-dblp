@@ -46,3 +46,11 @@ For more options see:
 ```
 convert_dblp --help
 ```
+
+# Find biburl
+If no bib urls is found, the script `bin/add_biburl.py` to find in dblp the corresponding biburl 
+
+Usage:
+```
+add_biburl INPUT_BIB [--out OUTPUT_BIB]
+```
