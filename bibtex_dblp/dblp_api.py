@@ -40,8 +40,8 @@ def extract_dblp_id(entry):
     """
     if "biburl" in entry.fields:
         match = re.search(r"http(s?)://dblp.org/rec/bib/(.*)", entry.fields["biburl"])
-        assert match
-        return match.group(2)
+        if match:
+            return match.group(2)
     else:
         key = entry.key
         if key.startswith("DBLP:"):
